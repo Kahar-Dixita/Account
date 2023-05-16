@@ -1,1 +1,2 @@
 @include('accounts.form')
+@csrf

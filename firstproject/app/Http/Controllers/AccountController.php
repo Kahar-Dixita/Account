@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Interfaces\AccountRepositoryInterface;
 use App\Models\Account;
+// use App\Http\Requests\AccountPostRequest;
 use Illuminate\Http\Request;
+// use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class AccountController extends Controller
 {
@@ -15,6 +17,7 @@ class AccountController extends Controller
     }
     public function index()
     {
+
         $accounts = $this->accountRepository->getALLAccount();
         $accounts = Account::paginate(5);
          return view('accounts.index',compact('accounts'));
@@ -33,14 +36,14 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-              $request->validate([
-        'name'=>'required'
-    ]);
+        // dd($request->all());
             $accounts= Account::create($request->all());
             $accounts->hobbies = is_array($request->input('hobbies')) ? implode(',', $request->input('hobbies')) : $request->input('hobbies');
 
             // $accounts->hobbies = implode(',',$request->input('hobbies'));
             $accounts->save();
+
+
             return redirect()->route('accounts.index')->with('status','Account created successfully.');
 
     }
@@ -89,11 +92,11 @@ class AccountController extends Controller
 
             return redirect()->route('accounts.index')->with('status','Account deleted successfully');
     }
-    public function fulfilled()
-    {
-        $accounts = $this->accountRepository->getFulfilledAccounts();
-        return view('accounts.index', compact('account'));
-    }
+    // public function fulfilled()
+    // {
+    //     $accounts = $this->accountRepository->getFulfilledAccounts();
+    //     return view('accounts.index', compact('account'));
+    // }
 }
 
 

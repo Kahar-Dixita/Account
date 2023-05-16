@@ -16,16 +16,16 @@
         <tr>
           {{-- <th scope="col">ID</th> --}}
           <th scope="col">NAME</th>
-          <th scope="col">CONTACT NO</th>
           <th scope="col">SALARY</th>
+          <th scope="col">ACCOUNT_ID</th>
           <th scope="col=2">OPERATION</th>
         </tr>
         <tbody>
             @foreach( $employees as $employee)
           <tr>
             <td>{{ $employee->name }}</td>
-            <td>{{ $employee->contact_no }}</td>
             <td>{{ $employee->salary }}</td>
+            <td>{{ $employee->account_id }}</td>
       <td>
        <form action="{{ route('employees.destroy', ['employee' => $employee['id']]) }}" method="POST">
           <a class=" btn-outline-dark btn " href="{{ route('employees.edit', ['employee' => $employee['id']]) }}">Edit</a>
@@ -43,7 +43,7 @@
   <div class="page" style="padding: 30px;
       margin-left: 37%;
   line-height:2">
-  {{-- {{ $employees->links() }} --}}
+  {{ $employees->links() }}
   </div>
 
   <style>

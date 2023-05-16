@@ -10,10 +10,10 @@ use App\Traits\Uuid;
 class account extends Model
 {
     use HasFactory;
-    use Uuid;
+    // use Uuid;
     use SoftDeletes;
     // protected $table="accounts";
-    protected $fillable = ['name','contact_no','email','gender','hobbies'];
+    protected $fillable = ['name','contact_no','email','gender','hobbies','account_id'];
 
     public function setHobbiesAttribute($value)
     {
@@ -22,6 +22,6 @@ class account extends Model
 
     public function employee()
     {
-        return $this->hasOne('App\Employee');
+        return $this->hasOne(Employee::class,'account_id');
     }
 }

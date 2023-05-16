@@ -58,16 +58,17 @@
                         </form>
 
                         {{-- View --}}
-                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                            data-bs-target="#viewModal">
-                            view
-                        </button>
-                        <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel"
+                        <a href="{{ route('accounts.show', ['account' => $account->id]) }}" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop1{{ $account->id }}"
+                            class="btn btn-outline-success btn">show</a>
+
+                        <div class="modal fade" id="staticBackdrop1{{ $account->id }}" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1"
                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="viewModalLabel">View Account</h5>
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel1">SHOW PAGE</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -77,6 +78,7 @@
                                 </div>
                             </div>
                         </div>
+
                         {{-- Edit --}}
                         <a class="btn btn-outline-dark" data-bs-toggle="modal"
                             data-bs-target="#editModal{{ $account['id'] }}">Edit</a>

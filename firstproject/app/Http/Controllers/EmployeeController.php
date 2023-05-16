@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\EmployeePostRequest;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 class EmployeeController extends Controller
 {
     /**
@@ -28,7 +29,7 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeePostRequest $request): RedirectResponse
     {
 
         $employees= Employee::create($request->all());

@@ -1,8 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    {{-- <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
-{{-- </head> --}}
 
 <body class="mt-4" style="background-color:aliceblue";>
     @if (isset($account))
@@ -15,7 +10,6 @@
     <div class="mb-3 col-10 fs-5">
         {!! Form::label('name', 'Name : ') !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'placeholder' => 'Enter Name']) !!}
-
     </div>
 
     <div class="mb-3 col-10 fs-5">
@@ -60,11 +54,8 @@
     <br>
     <div class="d-flex" style="justify-content:space-between">
         {!! Form::submit(isset($account) ? 'Update' : 'Create', ['class' => 'btn btn-outline-primary']) !!}
-        {{-- {!! Form::submit('Create', ['class' => 'btn btn-outline-dark']) !!} --}}
         <a class="btn btn-outline-dark float-end" href="{{ route('accounts.index') }}"> Back</a>
     </div>
 
     {!! Form::close() !!}
 </body>
-
-</html>

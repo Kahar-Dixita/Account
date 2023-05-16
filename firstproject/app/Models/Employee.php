@@ -11,10 +11,5 @@ class Employee extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['name','contact_no','salary'];
-
-    public function account()
-    {
-        return $this->belongsTo('App\Employee');
-    }
+    protected $fillable = ['name','salary','account_id'];
 }

@@ -9,6 +9,6 @@ interface AccountRepositoryInterface
     public function deleteAccount($accountId);
     public function createAccount(array $accounts);
     public function updateAccount($account, array $newDetails);
-    public function getFulfilledAccounts();
+    // public function getFulfilledAccounts();
 }
 ?>

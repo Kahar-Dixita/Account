@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('contact_no')->nullable();
             $table->string('salary')->nullable();
-            $table->integer('account_id')->unsigned();
-            $table->timestamps();
+            $table->unsignedBigInteger('account_id');
+            $table->foreign('account_id')->references('id')->on('accounts');
             $table->SoftDeletes();
-            $table->foreign('account_id')->references('id')->on('accounts') ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
